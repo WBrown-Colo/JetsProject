@@ -1,7 +1,7 @@
 package com.skilldistillery.jets.entities;
 
 public class FighterJet extends Jet {
-
+//create CombatReady and implement
 	public FighterJet() {
 		super();
 	}

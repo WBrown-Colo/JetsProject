@@ -17,7 +17,6 @@ public abstract class Jet {
 	}
 
 	public void fly() {
-		//override in each subclass
 		double flyTime = (this.range / this.speed);
 		System.out.println(this.model + " can fly for " + flyTime + "hours.");
 	}

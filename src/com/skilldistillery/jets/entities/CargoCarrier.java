@@ -1,7 +1,7 @@
 package com.skilldistillery.jets.entities;
 
-public abstract class CargoCarrier {
+public interface CargoCarrier {
 
-	public abstract void loadCargo();
+	void loadCargo();
 	
 }

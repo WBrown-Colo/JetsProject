@@ -58,4 +58,51 @@ public class AirField {
 
 	}
 
+	public void listFleet() {
+		for (Jet jet : fleet) {
+			System.out.println(jet);
+		}
+	}
+
+	public void flyAllJets() {
+		for (Jet jet : fleet) {
+			jet.fly();
+		}
+	}
+
+	public Jet getFastestJet() {
+		Jet fastestJet = fleet.get(0);
+		for (int i = 0; i < fleet.size(); i++) {
+			Jet currentJet = fleet.get(i);
+			if (currentJet.getSpeed() > fastestJet.getSpeed()) {
+				fastestJet = currentJet;
+			}
+		}
+		return fastestJet;
+	}
+
+	public Jet getJetWithLongestRange() {
+		Jet furthestRange = fleet.get(0);
+		for (int i = 0; i < fleet.size(); i++) {
+			Jet currentJet = fleet.get(i);
+			if (currentJet.getRange() > furthestRange.getRange()) {
+				furthestRange = currentJet;
+			}
+		}
+		return furthestRange;
+	}
+
+	public void loadAllCargo() {
+		for (Jet jet : fleet) {
+			if (jet instanceof CargoJet) {
+				((CargoJet) jet).loadCargo();
+			}
+			
+	//TODO: Add Dogfight!
+	//TODO: Add - Add jet to Fleet
+	//TODO: Add Remove a jet from Fleet	
+	//TODO: Add Quit option		
+			
+		}
+	}
 }

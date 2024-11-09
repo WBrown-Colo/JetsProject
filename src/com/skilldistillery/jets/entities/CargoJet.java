@@ -1,7 +1,7 @@
 package com.skilldistillery.jets.entities;
 
-public class CargoJet extends Jet {
-
+public class CargoJet extends Jet implements CargoCarrier {
+//implement CargoCarrier
 	public CargoJet() {
 		super();
 	}
@@ -14,6 +14,11 @@ public class CargoJet extends Jet {
 	public String toString() {
 		return "Fighter Jet [model: " + getModel() + ", speedInMPH: " + getSpeed() + ", range: "
 				+ getRange() + "miles, price: $" + getPrice() + "]";
+	}
+
+	@Override
+	public void loadCargo() {
+		
 	}
 	
 
