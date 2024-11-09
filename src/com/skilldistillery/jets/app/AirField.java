@@ -39,12 +39,12 @@ public class AirField {
 					fleet.add(newJet);
 					break;
 
-				case "fighter":
+				case "Fighter":
 					newJet = new FighterJet(model, speed, range, price);
 					fleet.add(newJet);
 					break;
 
-				case "passenger":
+				case "Passenger":
 					newJet = new FighterJet(model, speed, range, price);
 					fleet.add(newJet);
 					break;
