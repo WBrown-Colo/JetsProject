@@ -18,13 +18,13 @@ public abstract class Jet {
 
 	public void fly() {
 		//override in each subclass
-		System.out.println(this.model + " flying"); //FIXME
+		double flyTime = (this.range / this.speed);
+		System.out.println(this.model + " can fly for " + flyTime + "hours.");
 	}
 	
 	public double getSpeedInMach() {
-		//TODO: look up hot to convert MPH to Mach
-		// NO need to override
-		return 0.0;
+		double speedInMach = (this.range / this.speed);
+		return speedInMach;
 	}
 	
 	
