@@ -9,6 +9,7 @@ import java.util.List;
 import com.skilldistillery.jets.entities.CargoJet;
 import com.skilldistillery.jets.entities.FighterJet;
 import com.skilldistillery.jets.entities.Jet;
+import com.skilldistillery.jets.entities.PassengerJet;
 
 public class AirField {
 
@@ -45,7 +46,7 @@ public class AirField {
 					break;
 
 				case "Passenger":
-					newJet = new FighterJet(model, speed, range, price);
+					newJet = new PassengerJet(model, speed, range, price);
 					fleet.add(newJet);
 					break;
 				}
@@ -110,7 +111,8 @@ public class AirField {
 		}
 	}
 
-	public void addJet(Jet jet) {
+	public void addJet() {
+		Jet jet = null;
 		fleet.add(jet);
 	}
 
@@ -125,4 +127,5 @@ public class AirField {
 		}
 	}
 		
+			
 }

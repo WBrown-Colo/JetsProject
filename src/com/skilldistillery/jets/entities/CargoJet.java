@@ -12,7 +12,7 @@ public class CargoJet extends Jet implements CargoCarrier {
 	
 	@Override
 	public String toString() {
-		return "Fighter Jet [model: " + getModel() + ", speedInMPH: " + getSpeed() + ", range: "
+		return "Cargo Jet [model: " + getModel() + ", speedInMPH: " + getSpeed() + ", range: "
 				+ getRange() + "miles, price: $" + getPrice() + "]";
 	}
 

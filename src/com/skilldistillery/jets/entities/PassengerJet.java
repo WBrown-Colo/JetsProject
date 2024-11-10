@@ -12,7 +12,7 @@ public class PassengerJet extends Jet {
 	
 	@Override
 	public String toString() {
-		return "Fighter Jet [model: " + getModel() + ", speedInMPH: " + getSpeed() + ", range: "
+		return "Passenger Jet [model: " + getModel() + ", speedInMPH: " + getSpeed() + ", range: "
 				+ getRange() + "miles, price: $" + getPrice() + "]";
 	}
 
