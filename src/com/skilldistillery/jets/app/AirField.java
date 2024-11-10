@@ -18,7 +18,7 @@ public class AirField {
 
 	public AirField() {
 		loadJetsFromFile("jets.txt");
-	//	System.out.println(fleet);
+		//System.out.println(fleet);
 	}
 
 	private void loadJetsFromFile(String fileNameJets) {
@@ -31,32 +31,10 @@ public class AirField {
 				int speed = Integer.parseInt(fields[2]);
 				int range = Integer.parseInt(fields[3]);
 				double price = Double.parseDouble(fields[4]);
-
-				Jet newJet = null;
-
-				switch (jetType) {
-				case "Cargo":
-					newJet = new CargoJet(model, speed, range, price);
-					fleet.add(newJet);
-					break;
-
-				case "Fighter":
-					newJet = new FighterJet(model, speed, range, price);
-					fleet.add(newJet);
-					break;
-
-				case "Passenger":
-					newJet = new PassengerJet(model, speed, range, price);
-					fleet.add(newJet);
-					break;
-				}
-				System.out.println(newJet);
-				
 			}
 		} catch (IOException e) {
 			System.err.println(e);
-		}
-
+			}
 	}
 
 	public void listFleet() {
@@ -66,6 +44,7 @@ public class AirField {
 	}
 
 	public void flyAllJets() {
+		System.out.println("All jets are now flying!");
 		for (Jet jet : fleet) {
 			jet.fly();
 		}
@@ -75,7 +54,7 @@ public class AirField {
 		Jet fastestJet = fleet.get(0);
 		for (int i = 0; i < fleet.size(); i++) {
 			Jet currentJet = fleet.get(i);
-			if (currentJet.getSpeed() > fastestJet.getSpeed()) {
+			if (currentJet.getSpeedInMPH() > fastestJet.getSpeedInMPH()) {
 				fastestJet = currentJet;
 			}
 		}
@@ -111,26 +90,35 @@ public class AirField {
 		}
 	}
 
-	public void addJet(Jet jet) {
-		fleet.add(jet);
+	public void addJet(int jetType, String model, int speed, int range, long price) {
+		Jet newJet = null;
+		switch (jetType) {
+		case 1:
+			newJet = new CargoJet(model, speed, range, price);
+			fleet.add(newJet);
+			break;
+
+		case 2:
+			newJet = new FighterJet(model, speed, range, price);
+			fleet.add(newJet);
+			break;
+
+		case 3:
+			newJet = new PassengerJet(model, speed, range, price);
+			fleet.add(newJet);
+			break;
+		}
+		System.out.println(newJet);
+		
 	}
 
-	public void printSimpleJets() {
-		System.out.println("Please type one of the below jet class names that identify your jet.");
-		System.out.println(" =============== ");
-		System.out.println("| Cargo Jet     |");
-		System.out.println("| Fighter Jet   |");
-		System.out.println("| Passenger Jet |");
-		System.out.println(" =============== ");
-	}
-	
 	public boolean removeJet(int index) {
 		try {
 			fleet.remove(index);
 			return true;
 		} 
 		catch (IndexOutOfBoundsException e) {
-					System.err.println("Sorry, but there are not enough resources to add this jet to the fleet.");
+					System.err.println("Sorry, your input does not reflect a jet in the fleet. Please try again.");
 					return false;
 		}
 	}

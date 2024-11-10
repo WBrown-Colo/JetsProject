@@ -6,13 +6,13 @@ public class FighterJet extends Jet {
 		super();
 	}
 
-	public FighterJet(String model, int speed, int range, double price) {
+	public FighterJet(String model, int speed, int range, long price) {
 		super(model, speed, range, price);
 	}
 	
 	@Override
 	public String toString() {
-		return "Fighter Jet [model: " + getModel() + ", speedInMPH: " + getSpeed() + ", range: "
+		return "Fighter Jet [model: " + getModel() + ", speedInMPH: " + getSpeedInMPH() + ", range: "
 				+ getRange() + "miles, price: $" + getPrice() + "]";
 	}
 

@@ -2,8 +2,10 @@ package com.skilldistillery.jets.app;
 
 import java.util.Scanner;
 
+import com.skilldistillery.jets.app.AirField;
 import com.skilldistillery.jets.entities.CargoJet;
 import com.skilldistillery.jets.entities.FighterJet;
+import com.skilldistillery.jets.entities.Jet;
 import com.skilldistillery.jets.entities.PassengerJet;
 
 public class JetsApplication {
@@ -50,6 +52,7 @@ public class JetsApplication {
 				break;
 			case 7:
 				userAddJet();
+				System.out.println("Your jet has been added to the fleet.");
 				break;
 			case 8:
 				System.out.println("Which jet would you like to remove?");
@@ -98,38 +101,29 @@ public class JetsApplication {
 	
 	}
 	
-	//TODO: create method/cases in order to addJet
 	private void userAddJet() {
-		System.out.println("Select a jet to add: ");
-		airField.printSimpleJets();
-		String jetType = kb.nextLine();
+		System.out.println("Please select which jet type you would like to add: ");
+		printSimpleJets();
+		kb.nextLine();
 		System.out.print("Input the model: ");
-		String model = kb.nextLine();
+		kb.nextLine();
 		System.out.print("Enter a max speed in MPH: ");
-		int speed = kb.nextInt();
+		kb.nextInt();
 		System.out.print("Enter the max range of distance traveled: ");
-		int range = kb.nextInt();
+		kb.nextInt();
 		System.out.print("Set the price of the aircraft: ");
-		double price = kb.nextLong();
+		kb.nextDouble();
 		kb.nextLine();
 		System.out.println();
-		switch (jetType) {
-		case "Passenger Jet":
-			PassengerJet userPassenger = new PassengerJet(model, speed, range, price);
-			airField.addJet(userPassenger);
-			break;
-		case "Cargo Jet":
-			CargoJet userCargo = new CargoJet(model, speed, range, price);
-			airField.addJet(userCargo);
-			break;
-		case "Fighter Jet":
-			FighterJet userFighter = new FighterJet(model, speed, range, price);
-			airField.addJet(userFighter);
-			break;
-		default:
-			System.out.println("Input error. Please use a valid entry from above.");
-			break;
-		}
-		System.out.println("The " + jetType + " was added to the fleet");
+		
+		
+	}	
+	private void printSimpleJets() {
+		System.out.println(" ================== ");
+		System.out.println("| 1. Cargo Jet     |");
+		System.out.println("| 2. Fighter Jet   |");
+		System.out.println("| 3. Passenger Jet |");
+		System.out.println(" ================== ");
 	}
+		
 }

@@ -6,13 +6,13 @@ public class PassengerJet extends Jet {
 		super();
 	}
 
-	public PassengerJet(String model, int speed, int range, double price) {
-		super(model, speed, range, price);
+	public PassengerJet(String model, int speedInMPH, int range, long price) {
+		super(model, speedInMPH, range, price);
 	}
 	
 	@Override
 	public String toString() {
-		return "Passenger Jet [model: " + getModel() + ", speedInMPH: " + getSpeed() + ", range: "
+		return "Passenger Jet [model: " + getModel() + ", speedInMPH: " + getSpeedInMPH() + ", range: "
 				+ getRange() + "miles, price: $" + getPrice() + "]";
 	}
 

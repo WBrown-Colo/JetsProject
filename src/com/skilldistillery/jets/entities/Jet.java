@@ -2,27 +2,27 @@ package com.skilldistillery.jets.entities;
 
 public abstract class Jet {
 	private String model;
-	private int speed;
+	private int speedInMPH;
 	private int range;
-	private double price;
+	private long price;
 	
 	public Jet() {}
 	
-	public Jet(String model, int speed, int range, double price) {
+	public Jet(String model, int speedInMPH, int range, long price) {
 		super();
 		this.model = model;
-		this.speed = speed;
+		this.speedInMPH = speedInMPH;
 		this.range = range;
 		this.price = price;
 	}
 
 	public void fly() {
-		double flyTime = (this.range / this.speed);
+		double flyTime = (this.range / this.speedInMPH);
 		System.out.println("The " + this.model + " can fly for up to " + flyTime + "hours.");
 	}
 	
 	public double getSpeedInMach() {
-		double speedInMach = (this.range / this.speed);
+		double speedInMach = (this.range / this.speedInMPH);
 		return speedInMach;
 	}
 	
@@ -35,12 +35,12 @@ public abstract class Jet {
 		this.model = model;
 	}
 
-	public int getSpeed() {
-		return speed;
+	public int getSpeedInMPH() {
+		return speedInMPH;
 	}
 
-	public void setSpeed(int speed) {
-		this.speed = speed;
+	public void setSpeedInMPH(int speedInMPH) {
+		this.speedInMPH = speedInMPH;
 	}
 
 	public int getRange() {
@@ -55,13 +55,13 @@ public abstract class Jet {
 		return price;
 	}
 
-	public void setPrice(double price) {
+	public void setPrice(long price) {
 		this.price = price;
 	}
 
 	@Override
 	public String toString() {
-		return "Jet [model=" + model + ", speed=" + speed + ", range=" + range + ", price=" + price + "]";
+		return "Jet [model=" + model + ", speedInMPH=" + speedInMPH + ", range=" + range + ", price=" + price + "]";
 	}
 
 }
