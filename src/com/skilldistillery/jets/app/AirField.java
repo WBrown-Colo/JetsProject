@@ -111,11 +111,19 @@ public class AirField {
 		}
 	}
 
-	public void addJet() {
-		Jet jet = null;
+	public void addJet(Jet jet) {
 		fleet.add(jet);
 	}
 
+	public void printSimpleJets() {
+		System.out.println("Please type one of the below jet class names that identify your jet.");
+		System.out.println(" =============== ");
+		System.out.println("| Cargo Jet     |");
+		System.out.println("| Fighter Jet   |");
+		System.out.println("| Passenger Jet |");
+		System.out.println(" =============== ");
+	}
+	
 	public boolean removeJet(int index) {
 		try {
 			fleet.remove(index);
@@ -126,6 +134,6 @@ public class AirField {
 					return false;
 		}
 	}
-		
+
 			
 }

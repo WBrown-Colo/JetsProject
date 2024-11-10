@@ -2,6 +2,10 @@ package com.skilldistillery.jets.app;
 
 import java.util.Scanner;
 
+import com.skilldistillery.jets.entities.CargoJet;
+import com.skilldistillery.jets.entities.FighterJet;
+import com.skilldistillery.jets.entities.PassengerJet;
+
 public class JetsApplication {
 
 	private AirField airField = new AirField();
@@ -45,7 +49,7 @@ public class JetsApplication {
 				airField.startDogFight();
 				break;
 			case 7:
-				airField.addJet();
+				userAddJet();
 				break;
 			case 8:
 				System.out.println("Which jet would you like to remove?");
@@ -95,4 +99,37 @@ public class JetsApplication {
 	}
 	
 	//TODO: create method/cases in order to addJet
+	private void userAddJet() {
+		System.out.println("Select a jet to add: ");
+		airField.printSimpleJets();
+		String jetType = kb.nextLine();
+		System.out.print("Input the model: ");
+		String model = kb.nextLine();
+		System.out.print("Enter a max speed in MPH: ");
+		int speed = kb.nextInt();
+		System.out.print("Enter the max range of distance traveled: ");
+		int range = kb.nextInt();
+		System.out.print("Set the price of the aircraft: ");
+		double price = kb.nextLong();
+		kb.nextLine();
+		System.out.println();
+		switch (jetType) {
+		case "Passenger Jet":
+			PassengerJet userPassenger = new PassengerJet(model, speed, range, price);
+			airField.addJet(userPassenger);
+			break;
+		case "Cargo Jet":
+			CargoJet userCargo = new CargoJet(model, speed, range, price);
+			airField.addJet(userCargo);
+			break;
+		case "Fighter Jet":
+			FighterJet userFighter = new FighterJet(model, speed, range, price);
+			airField.addJet(userFighter);
+			break;
+		default:
+			System.out.println("Input error. Please use a valid entry from above.");
+			break;
+		}
+		System.out.println("The " + jetType + " was added to the fleet");
+	}
 }
