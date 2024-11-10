@@ -16,4 +16,8 @@ public class FighterJet extends Jet {
 				+ getRange() + "miles, price: $" + getPrice() + "]";
 	}
 
+	public void fight() {
+		
+	}
+
 }

@@ -97,12 +97,32 @@ public class AirField {
 			if (jet instanceof CargoJet) {
 				((CargoJet) jet).loadCargo();
 			}
-			
-	//TODO: Add Dogfight!
-	//TODO: Add - Add jet to Fleet
-	//TODO: Add Remove a jet from Fleet	
-	//TODO: Add Quit option		
-			
 		}
 	}
+			
+	public void startDogFight() {
+		for (Jet jet : fleet) {
+			if (jet instanceof CargoJet) {
+				((CargoJet) jet).loadCargo();
+		} else if (jet instanceof FighterJet) {
+			((FighterJet) jet).fight();
+			}
+		}
+	}
+
+	public void addJet(Jet jet) {
+		fleet.add(jet);
+	}
+
+	public boolean removeJet(int index) {
+		try {
+			fleet.remove(index);
+			return true;
+		} 
+		catch (IndexOutOfBoundsException e) {
+					System.err.println("Sorry, but there are not enough resources to add this jet to the fleet.");
+					return false;
+		}
+	}
+		
 }
