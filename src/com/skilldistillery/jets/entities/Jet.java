@@ -18,11 +18,11 @@ public abstract class Jet {
 
 	public void fly() {
 		double flyTime = (this.range / this.speedInMPH);
-		System.out.println("The " + this.model + " can fly for up to " + flyTime + "hours.");
+		System.out.println("The " + this.model + " can fly for up to " + flyTime + "hours, at " + getSpeedInMach() + " Mach.");
 	}
 	
 	public double getSpeedInMach() {
-		double speedInMach = (this.range / this.speedInMPH);
+		double speedInMach = (this.speedInMPH / 767.3);
 		return speedInMach;
 	}
 	

@@ -17,6 +17,7 @@ public class FighterJet extends Jet {
 	}
 
 	public void fight() {
+		System.out.println("The " + getModel() + " is ready to giv'em the whole nine yards. DOGFIGHT!");
 		
 	}
 

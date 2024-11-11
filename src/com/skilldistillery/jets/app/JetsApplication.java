@@ -104,18 +104,16 @@ public class JetsApplication {
 	private void userAddJet() {
 		System.out.println("Please select which jet type you would like to add: ");
 		printSimpleJets();
-		kb.nextLine();
+		String jetType = kb.nextLine();
 		System.out.print("Input the model: ");
-		kb.nextLine();
+		String model = kb.nextLine();
 		System.out.print("Enter a max speed in MPH: ");
-		kb.nextInt();
+		int speedInMPH = kb.nextInt();
 		System.out.print("Enter the max range of distance traveled: ");
-		kb.nextInt();
+		int range = kb.nextInt();
 		System.out.print("Set the price of the aircraft: ");
-		kb.nextDouble();
+		long price = kb.nextLong();
 		kb.nextLine();
-		System.out.println();
-		
 		
 	}	
 	private void printSimpleJets() {

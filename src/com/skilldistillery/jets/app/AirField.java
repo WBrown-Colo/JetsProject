@@ -31,6 +31,23 @@ public class AirField {
 				int speed = Integer.parseInt(fields[2]);
 				int range = Integer.parseInt(fields[3]);
 				double price = Double.parseDouble(fields[4]);
+				
+				Jet newJet = null;
+				switch (jetType) {
+				case "Cargo":
+					newJet = new CargoJet(model, speed, range, (long) price);
+					fleet.add(newJet);
+					break;
+				case "Fighter":
+					newJet = new FighterJet(model, speed, range, (long) price);
+					fleet.add(newJet);
+					break;
+				case "Passenger":
+					newJet = new PassengerJet(model, speed, range, (long) price);
+					fleet.add(newJet);
+					break;
+				}
+				System.out.println(newJet);
 			}
 		} catch (IOException e) {
 			System.err.println(e);
@@ -82,29 +99,29 @@ public class AirField {
 			
 	public void startDogFight() {
 		for (Jet jet : fleet) {
-			if (jet instanceof CargoJet) {
-				((CargoJet) jet).loadCargo();
+			if (jet instanceof FighterJet) {
+				((FighterJet) jet).fight();
 		} else if (jet instanceof FighterJet) {
 			((FighterJet) jet).fight();
 			}
 		}
 	}
 
-	public void addJet(int jetType, String model, int speed, int range, long price) {
+	public void addJet(int jetType, String model, int speedInMPH, int range, long price) {
 		Jet newJet = null;
 		switch (jetType) {
 		case 1:
-			newJet = new CargoJet(model, speed, range, price);
+			newJet = new CargoJet(model, speedInMPH, range, price);
 			fleet.add(newJet);
 			break;
 
 		case 2:
-			newJet = new FighterJet(model, speed, range, price);
+			newJet = new FighterJet(model, speedInMPH, range, price);
 			fleet.add(newJet);
 			break;
 
 		case 3:
-			newJet = new PassengerJet(model, speed, range, price);
+			newJet = new PassengerJet(model, speedInMPH, range, price);
 			fleet.add(newJet);
 			break;
 		}
